@@ -5,7 +5,7 @@
  * should not be modified by hand.
  */
 
-package ws.munday.scalaeclipseandroid;
+package ws.munday.androidscalabase;
 
 public final class R {
     public static final class attr {

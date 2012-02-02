@@ -1,10 +1,8 @@
 package ws.munday.androidscalabase
 
 import scala.util.Properties
-import ws.munday.scalaeclipseandroid.R;
 import android.app.Activity
 import android.os.Bundle
-import android.util.Log
 import android.widget.TextView
 
 class MainActivity extends Activity {
