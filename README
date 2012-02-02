@@ -1,4 +1,4 @@
-How-To get this to work:
+≈How-To get this to work:
 
 1. copy the ant-android-scala directory to disk (ex. /opt/ant-android-scala)
 2. change the sdk.dir and scala.dir properties in local.properties of the project to reflect your setup
