@@ -9,9 +9,10 @@ class MainActivity extends Activity {
     
     override def onCreate(savedInstanceState:Bundle) : Unit = {
         super.onCreate(savedInstanceState)
+        
         setContentView(R.layout.main)
         val textView = findViewById( R.id.main_text ).asInstanceOf[TextView]
-        textView setText(Properties.versionMsg)
+        textView setText(Properties.versionMsg + " on Android." )
     }
   
 }
