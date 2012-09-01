@@ -1,4 +1,4 @@
-/home/matt/Documents/scala_workspace/Android-Scala-Base/gen/ws/munday/androidscalabase/R.java \
+/home/matt/Documents/scala_workspace/Android-Scala-Base/bin/Android-Scala-Base.ap_ \
  : /home/matt/Documents/scala_workspace/Android-Scala-Base/res/values/strings.xml \
 /home/matt/Documents/scala_workspace/Android-Scala-Base/res/layout/main.xml \
 /home/matt/Documents/scala_workspace/Android-Scala-Base/res/drawable-mdpi/icon.png \

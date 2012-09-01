@@ -12,7 +12,7 @@ class MainActivity extends Activity {
         
         setContentView(R.layout.main)
         val textView = findViewById( R.id.main_text ).asInstanceOf[TextView]
-        textView setText(Properties.versionMsg + " on Android." )
+        textView setText(Properties.versionMsg + " test on Android." )
     }
   
 }
