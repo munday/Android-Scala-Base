@@ -1,9 +1,0 @@
-≈How-To get this to work:
-
-1. copy the ant-android-scala directory to disk (ex. /opt/ant-android-scala)
-2. change the sdk.dir and scala.dir properties in local.properties of the project to reflect your setup
-3. change the ant.android.scala.dir property in local properties of the project to the location that you copied the ant-android-scala directory
-4. change the proguard.dir to point to your proguard binary
-5. set up the key.store, key.alias, key.store.password, and key.alias.password with your keystore info
-6. 
-7. code Scala
