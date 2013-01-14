@@ -12,6 +12,18 @@
     <property name="configs.dir" value="${ant.android.scala.dir}/configs" />
     <property name="ant-invoked.jar" value="${configs.dir}/ant-invoked.jar" />
 
+    <!-- for mac, add extensible classpath refids -->
+    <condition property="extensible.classpath"
+        value="${tested.project.absolute.dir}/bin/classes"
+        else=".">
+        <isset property="tested.project.absolute.dir" />
+    </condition>
+    <condition property="extensible.libs.classpath"
+        value="${tested.project.absolute.dir}/${jar.libs.dir}"
+        else="${jar.libs.dir}">
+        <isset property="tested.project.absolute.dir" />
+    </condition>
+    
     <path id="scala.path">
         <pathelement path="${scala-compiler.jar}" />
         <pathelement path="${scala-library.jar}" />
@@ -19,9 +31,9 @@
 
     <path id="jar.libs.ref">
   		<fileset dir="${jar.libs.absolute.dir}" includes="*.jar" />
- 		<path refid="project.libraries.jars" />
-	</path>
-    
+ 		<path refid="project.all.jars.path" />
+    </path>
+
     <taskdef
         resource="scala/tools/ant/antlib.xml"
         classpathref="scala.path" />
@@ -53,19 +65,16 @@
         <scalac
             srcdir="${source.dir}" includes="**/*.scala"
             destdir="${out.classes.absolute.dir}"
-            bootclasspathref="android.target.classpath"
+            bootclasspathref="project.target.class.path"
             logging="${logging}" addparams="${scalac.addparams}"
             classpath="${extensible.classpath}"
             classpathref="jar.libs.ref">
-            
-            <!-- jar.libs.ref -->
-            
             <src path="${gen.absolute.dir}" />
             <classpath>
                 <pathelement location="${scala-library.jar}" />
                 <pathelement location="${out.classes.absolute.dir}" />
                 <fileset dir="${extensible.libs.classpath}" includes="*.jar" />
-                <path refid="project.libraries.jars" />
+                <path refid="project.all.jars.path" />
             </classpath>
         </scalac>
         <touch file="${out.dir}/classes.complete" verbose="no"/>
@@ -133,13 +142,13 @@
                to="\1.jar(!META-INF/MANIFEST.MF,!library.properties)"/>
             <path location="${scala-library.jar}" />
             <fileset dir="${jar.libs.dir}" includes="*.jar" />
-            <path refid="project.libraries.jars" />
+            <path refid="project.all.jars.path" />
         </pathconvert>
         <proguard-helper property="injars" prefix="-injars"
             path="${out.classes.absolute.dir}${path.separator}${injars.libs.path}" />
         <proguard-helper property="outjars" prefix="-outjars"
             path="${myapp.jar}" />
-        <pathconvert property="libraryjars.path" refid="android.target.classpath" />
+        <pathconvert property="libraryjars.path" refid="project.target.class.path" />
         <proguard-helper property="libraryjars" prefix="-libraryjars"
             path="${libraryjars.path}" />
         <copy file="${template.cfg}" tofile="${gen.proguard.cfg}">
