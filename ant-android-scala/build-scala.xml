@@ -6,6 +6,7 @@
     <!-- Scala SDK (www.scala-lang.org) -->
     <property name="scala-compiler.jar" value="${scala.dir}/lib/scala-compiler.jar" />
     <property name="scala-library.jar" value="${scala.dir}/lib/scala-library.jar" />
+    
     <!-- ProGuard (www.proguard.com) -->
     <property name="proguard.jar" value="${proguard.dir}/lib/proguard.jar" />
     <!-- Project settings -->
